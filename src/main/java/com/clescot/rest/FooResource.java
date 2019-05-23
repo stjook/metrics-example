@@ -6,6 +6,7 @@ import com.codahale.metrics.annotation.ExceptionMetered;
 import com.codahale.metrics.annotation.Gauge;
 import com.codahale.metrics.annotation.Metered;
 import com.codahale.metrics.json.HealthCheckModule;
+import com.codahale.metrics.json.MetricsModule;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.joda.time.DateTime;
@@ -28,7 +29,7 @@ public class FooResource {
 
     private ThreadMXBean threadBean = ManagementFactory.getThreadMXBean();
     private static final ObjectMapper mapper = new ObjectMapper().registerModules(
-            new com.codahale.metrics.json.MetricsModule(TimeUnit.SECONDS, TimeUnit.MILLISECONDS, false),//
+            new MetricsModule(TimeUnit.SECONDS, TimeUnit.MILLISECONDS, false),//
             new HealthCheckModule()//
     );
     private MetricRegistry registry;

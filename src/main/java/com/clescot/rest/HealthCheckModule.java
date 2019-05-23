@@ -11,8 +11,7 @@ public class HealthCheckModule extends ServletModule{
     protected void configureServlets() {
         install(new AdminServletModule());
         Multibinder<HealthCheck> healthChecksBinder = Multibinder.newSetBinder(binder(), HealthCheck.class);
-        healthChecksBinder.addBinding().to(DatabaseHealthCheck.class);
-
+        healthChecksBinder.addBinding().to(DatabaseHealthCheck.class).asEagerSingleton();
     }
 
 }

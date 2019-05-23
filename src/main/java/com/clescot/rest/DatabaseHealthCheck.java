@@ -11,7 +11,6 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class DatabaseHealthCheck extends HealthCheck {
-    private static final String DATABASE_HEALTH_CHECK_NAME = "database";
 
     private DataSource datasource;
 
@@ -30,12 +29,12 @@ public class DatabaseHealthCheck extends HealthCheck {
             statement = connection.createStatement();
             resultSet = statement.executeQuery("select 1 from dual");
             if (resultSet.next()) {
-                result = Result.healthy("'select 1 from dual' : OK");
+                result = Result.healthy("HEALTHY");
             } else {
-                result = Result.unhealthy("la requête 'select 1 from dual' retourne un résultat vide : KO");
+                result = Result.unhealthy("UNHEALTHY");
             }
         } catch (Throwable t) {
-            result = HealthCheck.Result.unhealthy("'select 1 from dual' : KO ", t);
+            result = HealthCheck.Result.unhealthy("UNHEALTHY", t);
         }
 
         return result;

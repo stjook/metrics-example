@@ -8,7 +8,8 @@
     <name>metrics-example Maven Webapp</name>
     <url>http://maven.apache.org</url>
     <properties>
-        <metrics.version>3.0.1</metrics.version>
+        <metrics.version>3.2.6</metrics.version>
+        <metrics.guice.version>3.0.1</metrics.guice.version>
         <jersey.version>1.17.1</jersey.version>
     </properties>
     <dependencies>
@@ -19,23 +20,23 @@
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>com.codahale.metrics</groupId>
+            <groupId>io.dropwizard.metrics</groupId>
             <artifactId>metrics-core</artifactId>
             <version>${metrics.version}</version>
         </dependency>
 
         <dependency>
-            <groupId>com.codahale.metrics</groupId>
-            <artifactId>metrics-servlet</artifactId>
+            <groupId>io.dropwizard.metrics</groupId>
+            <artifactId>metrics-servlets</artifactId>
             <version>${metrics.version}</version>
         </dependency>
         <dependency>
-            <groupId>com.codahale.metrics</groupId>
+            <groupId>io.dropwizard.metrics</groupId>
             <artifactId>metrics-json</artifactId>
             <version>${metrics.version}</version>
         </dependency>
         <dependency>
-            <groupId>com.codahale.metrics</groupId>
+            <groupId>io.dropwizard.metrics</groupId>
             <artifactId>metrics-jersey</artifactId>
             <version>${metrics.version}</version>
         </dependency>
@@ -59,7 +60,7 @@
         <dependency>
             <groupId>com.palominolabs.metrics</groupId>
             <artifactId>metrics-guice</artifactId>
-            <version>${metrics.version}</version>
+            <version>${metrics.guice.version}</version>
         </dependency>
         <dependency>
             <groupId>com.google.inject</groupId>
